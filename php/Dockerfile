@@ -9,9 +9,10 @@ RUN apt-get update && apt-get install -y \
                 libzip-dev \
                 libpng-dev \
                 unixodbc-dev \
+                libxml2-dev \
                 zip \
                 unzip \
-	&& docker-php-ext-install mysqli zip gd \
+	&& docker-php-ext-install xml mysqli zip gd \
         && pecl install sqlsrv \
         && pecl install pdo_sqlsrv \
         && echo extension=pdo_sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/10_pdo_sqlsrv.ini \
