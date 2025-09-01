@@ -5,10 +5,10 @@ services:
       - "80:80"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./app:/var/www/html
+      - ${PROJECT_DIR:-./app}:/var/www/html
     depends_on:
       - php
   php:
     build: php # Builds from the Dockerfile in the current directory
     volumes:
-      - ./app:/var/www/html
+      - ${PROJECT_DIR:-./app}:/var/www/html
