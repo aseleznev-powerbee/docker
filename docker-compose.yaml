@@ -9,6 +9,6 @@ services:
     depends_on:
       - php
   php:
-    build: php # Builds from the Dockerfile in the current directory
+    build: php
     volumes:
       - ${PROJECT_DIR:-./app}:/var/www/html
