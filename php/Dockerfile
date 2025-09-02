@@ -1,6 +1,5 @@
 FROM namoshek/php-mssql:8.2-fpm
-#WORKDIR /var/www/html
-#COPY . /var/www/html
+WORKDIR /var/www/html
 
 RUN apt-get update && apt-get install -y \
                 git \
