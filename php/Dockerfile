@@ -13,9 +13,14 @@ RUN apt-get update && apt-get install -y \
                 zip \
                 unzip \
 	&& docker-php-ext-install xml mysqli zip gd \
+
+        # MSSQL OBDC
+
+        && pecl config-set php_ini /etc/php/8.2/fpm/php.ini \
         && pecl install sqlsrv \
         && pecl install pdo_sqlsrv \
         && echo extension=pdo_sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/10_pdo_sqlsrv.ini \
-        && echo extension=sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/00_sqlsrv.ini
+        && echo extension=sqlsrv.so >> `php --ini | grep "Scan for additional .ini files" | sed -e "s|.*:\s*||"`/00_sqlsrv.ini \
+        && docker-php-ext-enable sqlsrv pdo_sqlsrv
 
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
