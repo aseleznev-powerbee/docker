@@ -5,7 +5,7 @@
 Copy `.env.dist` file.
 
 ```bash
-cp .env.dict .env
+cp .env.dist .env
 ```
 
 Set up your environment variables.
@@ -27,13 +27,6 @@ docker compose build
 Run containers.
 ```bash
 docker compose up -d
-```
-
-Install composer dependencies.
-
-```bash
-docker exec -it docker-php-1 bash
-composer install --ignore-platform-reqs
 ```
 
 ## Run
