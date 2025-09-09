@@ -12,3 +12,4 @@ services:
     build: php
     volumes:
       - ${PROJECT_DIR:-./app}:/var/www/html
+      - ./php/xdebug/profiler:/tmp/xdebug_profiler
