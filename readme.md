@@ -32,3 +32,8 @@ docker compose up -d
 ## Run
 
 Open http://localhost:80 in your browser.
+
+## xDebug
+Extension xdebug is enabled by default.
+Use `php/xdebug/xdebug.ini` to change xdebug settings (`docker compose build` required).
+Port `9003` is used for remote debugging by default. Server name - `docker-server`.
